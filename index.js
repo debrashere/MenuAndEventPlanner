@@ -163,11 +163,11 @@ function generateGoogleMap() {
 
 function generateEventDetails() {
   let eventDetails = `
-    <p><h2>Event: ${EVENT.name}</h2> <a class="edit js-edit" alt="edit event details" id="EditHost" href=#>edit</a></p>
+    <p><h2>Event: ${EVENT.name}</h2> <a role="link" class="edit js-edit" alt="edit event details" id="EditHost" href=#>edit</a></p>
     <p class="eventLocation"><h3>Host: ${EVENT.host}</h3></p>
-    <p class="eventLocation"><h3>Date: </h3> <span id="event-date" class="js-event-date"> ${EVENT.date}</span></p>        
+    <p class="eventLocation"><h3>Date: </h3> <span role="datetime" id="event-date" class="js-event-date"> ${EVENT.date}</span></p>        
     <p class="eventLocation"><h3>Location: </h3> <span id="event-location" class="js-event-location"> ${EVENT.location}</span></p>  
-    <p class="eventLocation"><h3>Address: </h3> <span id="event-address" class="js-event-address"> ${EVENT.address1}, ${EVENT.city}, ${EVENT.state} ${EVENT.zip}</span></p>
+    <p class="eventLocation"><h3>Address: </h3> <address> id="event-address" class="js-event-address"> ${EVENT.address1}, ${EVENT.city}, ${EVENT.state} ${EVENT.zip}</address></p>
     <p class="eventLocation"><h3>Start time:</h3><span id="event-startTime"> ${EVENT.startTime}</span></p>`;
     $(".js-event-hosts").html(eventDetails);
     generateGoogleMap();
@@ -255,7 +255,7 @@ function renderRecipe(searchResults, navigation) {
       <div class="box">
         <a href="${recipe.source_url}" target="_blank"> <img src="${recipe.image_url}" class="tc-img" alt="${recipe.title}" /></a> <br>        
         <span class="title">
-          <span class="recipe js-${recipeId}" role="title">${recipe.title} </br>
+          <span class="recipe js-${recipeId}" role="title">${recipe.title}</span> </br>
           <span><em>${recipe.publisher}</em></span>  </br>
           <span class="js-add-recipe"><strong>Add recipe to the menu:</strong></span> </br>           
           <span> ${coursesLinks}</br></span>  
@@ -316,7 +316,7 @@ function handleNextPageClicked() {
       <fieldset class="edit-event">
         <legend><h2>Host details and event name</h2></legend>
        <p> <label for="eventName" class="edit-label"><strong>Event Name: </strong></label> <input type="text" id="eventName" value="${EVENT.name}" required /></p>
-       <p> <label for="eventDate" class="edit-label"><strong>Event Date: </strong></label>  <input type="text"  id="eventDate" value="${EVENT.date}" /></p>
+       <p> <label for="eventDate" class="edit-label"><strong>Event Date: </strong></label>  <input role="datetime" type="datetime"  id="eventDate" value="${EVENT.date}" /></p>
        <p> <label for="eventLocation" class="edit-label"><strong>Location: </strong></label>  <input type="text"  id="eventLocation" value="${EVENT.location}" /></p>
        <p> <label for="hostName" class="edit-label"><strong>Host Name: </strong></label> <input type="text"  id="hostName" value="${EVENT.host}" /></p>
        <p> <label for="address1"  class="edit-label"><strong>Address: </strong></label>  <input type="text"  id="address1" value=" ${EVENT.address1}" /></p>

@@ -18,6 +18,7 @@ main .row {
   margin: 0 auto; 
   background: #fff; 
   padding-top: 5px;  
+  padding-bottom: 5px;  
 }
 
 .content {
@@ -51,7 +52,7 @@ main .row {
   margin-top: 10px; 
 } 
 
-h2, h2, h3 {
+h2, h2, h3, address {
   margin: 0;
   display: inline-block;
 }

@@ -4,21 +4,10 @@
   <meta charset="UTF-8">
   <title>Menu and Event Planner</title> 
   <meta name="description" content="Menu and Event Planner"> 
-
-  <!-- Responsive viewport tag, tells small screens that it's responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Normalize.css, a cross-browser reset file -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="index.css" />
-  
+  <link  rel="stylesheet" href="index.css" />  
 </head>
-<body>
+<body role="body">
   <main role="main">
     <div class="row">      
       <div class="logo">   
@@ -32,7 +21,7 @@
                 </span> 
             </div>
             <h2>Future features</h2>             
-            <div class="futureFeatures">                
+            <div class="futureFeatures" role="complementary">                
                     <span  tabindex="0">Up coming features are: Edit menu details and manage attendees. 
                         New feature to allow attendees to be assigned menu item.                                    			
                     </span> 
@@ -41,8 +30,8 @@
             <form action="#" class="js-form">
                 <div class="search js-search">
                     <label for="queryInput" class="js-search-label">Enter recipe search text</label>
-                    <input name="queryInput" id="queryInput" type="text" class="js-query" required aria-required="true">                
-                    <button id="submitRecipeSearch" type="submit" class="search js-search-button" >Search</button>
+                    <input role=" searchbox" name="queryInput" id="queryInput" type="text" class="js-query" required aria-required="true">                
+                    <button role="button" id="submitRecipeSearch" type="submit" class="search js-search-button" >Search</button>
                 </div> 
                 <output><div id="js-error-message" class="error-message" aria-live="assertive" hidden> </div></output>
                 <output class="slider js-slider" role="dialog" aria-hidden="true" hidden>
@@ -54,9 +43,9 @@
                 </output>                                  
                 <output  class="js-edit-event js-edit-event-details" aria-live="assertive" hidden></output>     				
             </form> 
-            <button type="submit"    type="submit" id="submitEvent" class="js-edit-event" hidden>Submit</button>  
-            <button id="resetEvent"  type="reset"  id="resetEvent"  class="js-edit-event" hidden>Reset</button> 
-            <button id="cancelEvent" type="cancel" id="cancelEvent" class="js-edit-event" hidden>Cancel</button>
+            <button role="button" type="submit" id="submitEvent" class="js-edit-event" hidden>Submit</button>  
+            <button role="button" type="reset"  id="resetEvent"  class="js-edit-event" hidden>Reset</button> 
+            <button role="button" type="cancel" id="cancelEvent" class="js-edit-event" hidden>Cancel</button>
             
             <div class="event-hosts">
                 <div class="js-event-hosts"></div> 
@@ -68,7 +57,7 @@
     </div>
     </main> 
     <!-- JS ======================================================= --> 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script> 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>      
 </body>
 </html>

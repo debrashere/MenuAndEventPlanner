@@ -2,7 +2,7 @@
 
 Thinkful (https://www.thinkful.com/) API Capstone Project creating a menu and event planning.
 
-Link to the live demo: TBD
+Link to the live demo: https://debrashere.github.io/MenuAndEventPlanner/
 
 ### Summary
 The first draft of this app uses mock data for the initial menu and event details. 
@@ -53,14 +53,14 @@ The address and the google map should be updated with the new address.
 ## Built With
 
 * [VsCode](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Food2Network API](https://Food2Fork.com/) - Dependency Management
-* [Google Maps API](https://maps.googleapis.com/) - Used to generate RSS Feeds
+* [Food2Network API](https://Food2Fork.com/) - API used for recipe search
+* [Google Maps API](https://maps.googleapis.com/) - Used to generate googole maps
 * [Photos from unsplash.com](https://unsplash.com/) - Used for heading background* 
 * [Target icon from iconfinder.com](https://www.iconfinder.com/) - Used in Google Map to show event location 
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+ [Github](https://github.com/) is used for versioning.
 
 ## Authors
 

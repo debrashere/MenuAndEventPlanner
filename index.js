@@ -167,7 +167,7 @@ function generateEventDetails() {
     <p class="eventLocation"><h3>Host: ${EVENT.host}</h3></p>
     <p class="eventLocation"><h3>Date: </h3> <span role="datetime" id="event-date" class="js-event-date"> ${EVENT.date}</span></p>        
     <p class="eventLocation"><h3>Location: </h3> <span id="event-location" class="js-event-location"> ${EVENT.location}</span></p>  
-    <p class="eventLocation"><h3>Address: </h3> <address> id="event-address" class="js-event-address"> ${EVENT.address1}, ${EVENT.city}, ${EVENT.state} ${EVENT.zip}</address></p>
+    <p class="eventLocation"><h3>Address: </h3>  <address id="event-address" class="js-event-address">${EVENT.address1}, ${EVENT.city}, ${EVENT.state} ${EVENT.zip}</address></p>
     <p class="eventLocation"><h3>Start time:</h3><span id="event-startTime"> ${EVENT.startTime}</span></p>`;
     $(".js-event-hosts").html(eventDetails);
     generateGoogleMap();

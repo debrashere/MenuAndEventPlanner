@@ -164,26 +164,26 @@ function generateGoogleMap() {
 
 function generateEventDetails() {
   let eventDetails = `
-    <h2>Event: ${EVENT.name}</h2> <a class="js-edit" alt="edit event details" id="EditHost" href=#>edit</a>
-    <div  class="eventLocation"><strong>Host: ${EVENT.host}</strong></div>
-    <div  class="eventLocation"><strong>Date: </strong> <span id="event-date" class="js-event-date"> ${EVENT.date}</span></div>
-    <div  class="eventLocation"><strong>Location: </strong> <span id="event-location" class="js-event-location"> ${EVENT.location}</span></div>
-    <div  class="eventLocation"><strong>Address: </strong>  <address id="event-address" class="js-event-address">${EVENT.address1}, ${EVENT.city}, ${EVENT.state} ${EVENT.zip}</address></div>
-    <div  class="eventLocation"><strong>Start time:</strong><span id="event-startTime"> ${EVENT.startTime}</span></div>`;
+    <h2>Event: ${EVENT.name}</h2> <a  tabindex="0" aria-label="Edit event details such as host name and location of event" class="js-edit" alt="edit event details" id="EditHost" href=#>edit</a>
+    <div  class="eventLocation"><strong tabindex="0" aria-label="Host name">Host: <span tabindex="0"> ${EVENT.host}</span></strong></div>
+    <div  class="eventLocation"><strong tabindex="0" aria-label="Date of the event">Date: </strong> <span tabindex="0"  id="event-date" class="js-event-date"> ${EVENT.date}</span></div>
+    <div  class="eventLocation"><strong tabindex="0" aria-label="Location name of the event">Location: </strong> <span tabindex="0" id="event-location" class="js-event-location"> ${EVENT.location}</span></div>
+    <div  class="eventLocation"><strong tabindex="0" aria-label="Address of the event">Address: </strong>  <address  tabindex="0"  id="event-address" class="js-event-address">${EVENT.address1}, ${EVENT.city}, ${EVENT.state} ${EVENT.zip}</address></div>
+    <div  class="eventLocation"><strong tabindex="0" aria-label="Start time of the event">Start time:</strong><span  tabindex="0" id="event-startTime"> ${EVENT.startTime}</span></div>`;
     $(".js-event-hosts").html(eventDetails);
     generateGoogleMap();
     watchEditLinkClick();
 }
  
   function showContributorDetails(thisContributor) {   
-    let courseAndItems = `<h3>${thisContributor}</h3>  <a id="showMenu" href="#" class=" js-edit js-show-menu"> Show Menu</a> <br> `;  
+    let courseAndItems = `<h3 tabindex="0" aria-lable="Display only menu items that ${thisContributor} will contribute">${thisContributor}</h3> <a id="showMenu" aria-label="Show full menu" href="#" class=" js-edit js-show-menu"> Show Menu</a> <br> `;  
     let menuItms = "";
     let courseHeading = "";
     MENU.courses.map( function (thisCourse) {       
       jQuery.each( thisCourse.menuItems, function( i, menuItems ) {
         if ( menuItems.contributors.filter( c => c.contributor == `${thisContributor}`).length > 0) {  
            courseHeading = `<h3>${thisCourse.course}</h3>`; 
-           menuItms += `<p class="contributed">${menuItems.menuItem}</p>`           
+           menuItms += `<p tabindex=0" aria-label="${thisContributor} will contribute ${menuItems.menuItem} for ${thisCourse.course}" class="contributed">${menuItems.menuItem}</p>`           
         }  
     }); 
     courseAndItems += `${courseHeading}${menuItms}`; 
@@ -342,10 +342,10 @@ function generateMenu() {
     menuDivs += `<div class="col course"><h3 class="menu-course" id="bm-${courses.course}">${courses.course}</h3>`;    
     courses.menuItems.map( function (menuItems) {  
       menuItems.contributors.map( function(contributors) {     
-        contributorSpan += `  <a href="#" id="conDetails-${contributors.contributor}-${index}" class="contributor js-edit js-contributor" alt="Next">${contributors.contributor}</a>`;
+        contributorSpan += `  <a href="#" aria-label="Show menu items that ${contributors.contributor} will contribute to ${courses.course}" id="conDetails-${contributors.contributor}-${index}" class="contributor js-edit js-contributor" alt="Next">${contributors.contributor}</a>`;
         index++;
       });     
-      menuDivs+= `<p class="menuItem js-menuItem">${menuItems.menuItem} ${contributorSpan} </p>`;
+      menuDivs+= `<p tabindex="0" class="menuItem js-menuItem" aria-label="${courses.course} menu item ${menuItems.menuItem} " >${menuItems.menuItem} ${contributorSpan} </p>`;
       contributorSpan = "";                          
     });
     menuDivs += "</div>";

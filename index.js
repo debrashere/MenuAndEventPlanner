@@ -66,7 +66,7 @@ let MENU =
                            vegetarian: true,
                                  nuts: false },   
                             {menuItem: "Chili Mac",
-                         contributors: [ { contributor: "Jason"}],
+                         contributors: [],
                          vegan: false,
                          vegetarian: true,
                                nuts: false },     
@@ -164,12 +164,12 @@ function generateGoogleMap() {
 
 function generateEventDetails() {
   let eventDetails = `
-    <h2>Event: ${EVENT.name}</h2> <a role="link" class="js-edit" alt="edit event details" id="EditHost" href=#>edit</a>
-    <div  class="eventLocation"><h3>Host: ${EVENT.host}</h3></div>
-    <div  class="eventLocation"><h3>Date: </h3> <span role="datetime" id="event-date" class="js-event-date"> ${EVENT.date}</span></div>
-    <div  class="eventLocation"><h3>Location: </h3> <span id="event-location" class="js-event-location"> ${EVENT.location}</span></div>
-    <div  class="eventLocation"><h3>Address: </h3>  <address id="event-address" class="js-event-address">${EVENT.address1}, ${EVENT.city}, ${EVENT.state} ${EVENT.zip}</address></div>
-    <div  class="eventLocation"><h3>Start time:</h3><span id="event-startTime"> ${EVENT.startTime}</span></div>`;
+    <h2>Event: ${EVENT.name}</h2> <a class="js-edit" alt="edit event details" id="EditHost" href=#>edit</a>
+    <div  class="eventLocation"><strong>Host: ${EVENT.host}</strong></div>
+    <div  class="eventLocation"><strong>Date: </strong> <span id="event-date" class="js-event-date"> ${EVENT.date}</span></div>
+    <div  class="eventLocation"><strong>Location: </strong> <span id="event-location" class="js-event-location"> ${EVENT.location}</span></div>
+    <div  class="eventLocation"><strong>Address: </strong>  <address id="event-address" class="js-event-address">${EVENT.address1}, ${EVENT.city}, ${EVENT.state} ${EVENT.zip}</address></div>
+    <div  class="eventLocation"><strong>Start time:</strong><span id="event-startTime"> ${EVENT.startTime}</span></div>`;
     $(".js-event-hosts").html(eventDetails);
     generateGoogleMap();
     watchEditLinkClick();
@@ -184,11 +184,11 @@ function generateEventDetails() {
         if ( menuItems.contributors.filter( c => c.contributor == `${thisContributor}`).length > 0) {  
            courseHeading = `<h3>${thisCourse.course}</h3>`; 
            menuItms += `<p class="contributed">${menuItems.menuItem}</p>`           
-        } 
-        courseAndItems += `${courseHeading}${menuItms}`;
-        menuItms = "";
-        courseHeading= "";
-    });   
+        }  
+    }); 
+    courseAndItems += `${courseHeading}${menuItms}`; 
+    menuItms = "";
+    courseHeading= ""; 
   }); 
   
   $(".js-menu").html(courseAndItems);  
@@ -336,14 +336,16 @@ function handleNextPageClicked() {
       $("#eventName").prop('required',true);
   }
   
-function generateMenu() {   
+function generateMenu() {
+  let index = 1;   
   let menuDivs = "";
   let contributorSpan = "";
   MENU.courses.map( function(courses) {
     menuDivs += `<div class="col course"><h3 class="menu-course" id="bm-${courses.course}">${courses.course}</h3>`;    
     courses.menuItems.map( function (menuItems) {  
       menuItems.contributors.map( function(contributors) {     
-        contributorSpan += `  <a href="#" id="conDetails-${contributors.contributor}" class="contributor js-edit js-contributor" alt="Next">${contributors.contributor}</a>`;
+        contributorSpan += `  <a href="#" id="conDetails-${contributors.contributor}-${index}" class="contributor js-edit js-contributor" alt="Next">${contributors.contributor}</a>`;
+        index++;
       });     
       menuDivs+= `<p class="menuItem js-menuItem">${menuItems.menuItem} ${contributorSpan} </p>`;
       contributorSpan = "";                          
@@ -362,6 +364,7 @@ function addRecipeToMenu(id) {
 
   var clonedobj = jQuery.extend({}, thisCourse[0].menuItems[0]); 
   clonedobj.menuItem = $(`.${recipeId}`).html();
+  clonedobj.contributors =  [];
   thisCourse[0].menuItems.push(clonedobj);
   generateMenu();  
 }
@@ -370,7 +373,6 @@ function watchEditLinkClick() {
   $('.js-edit').click(event => {
     event.preventDefault();  
     const editItem = event.currentTarget.id; 
-    console.log(editItem.substring(0, 10)) ;
     if (editItem == "EditHost") {
        showFormEditHost();
     }

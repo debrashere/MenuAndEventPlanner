@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link  rel="stylesheet" href="index.css" />  
 </head>
-<body role="body">
-  <main role="main">
+<body>
+  <main>
     <div class="row">      
       <div class="logo">   
           <h1  tabindex="0">Menu and Event Planner</h1>
@@ -27,11 +27,11 @@
                     </span> 
              </div>                   
             <h2>Find Recipes</h2> 
-            <form action="#" class="js-form" role="form" id="editForm" name="editForm">
+            <form action="#" class="js-form"  id="editForm" name="editForm">
                 <div class="search js-search">
                     <label for="queryInput" class="js-search-label">Enter recipe search text</label>
-                    <input role=" searchbox" name="queryInput" id="queryInput" type="text" class="js-query" required aria-required="true">                
-                    <button role="button" id="submitRecipeSearch" type="submit" class="search js-search-button" >Search</button>
+                    <input name="queryInput" id="queryInput" type="text" class="js-query" required aria-required="true">                
+                    <button id="submitRecipeSearch" type="submit" class="search js-search-button" >Search</button>
                 </div> 
                 <output><div id="js-error-message" class="error-message" aria-live="assertive" hidden> </div></output>
                 <output class="slider js-slider" role="dialog" aria-hidden="true" hidden>
@@ -44,9 +44,9 @@
                 <output  class="edit-form js-edit js-edit-event" aria-live="assertive" hidden></output>   
                 <output  class="edit-form js-edit-menu" aria-live="assertive" hidden></output>  				
             </form> 
-            <button role="button" type="submit" id="submitEvent" class="js-edit js-edit-button" hidden>Submit</button>  
-            <button role="button" type="reset"  id="resetEvent"  class="js-edit js-edit-button" hidden>Reset</button> 
-            <button role="button" type="cancel" id="cancelEvent" class="js-edit js-edit-button" hidden>Cancel</button>
+            <button type="submit" id="submitEvent" class="js-edit js-edit-button" hidden>Submit</button>  
+            <button type="reset"  id="resetEvent"  class="js-edit js-edit-button" hidden>Reset</button> 
+            <button type="cancel" id="cancelEvent" class="js-edit js-edit-button" hidden>Cancel</button>
         
             <div class="col-container event-hosts" id="bm-event" name ="bm-event" >            
                 <div class="col event js-event-hosts"></div>             

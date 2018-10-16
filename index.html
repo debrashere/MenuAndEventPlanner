@@ -15,7 +15,7 @@
       </div>        
         <div class="col-6">           
             <h2>Introduction</h2> 
-            <div class="introduction">                
+            <div class="introduction"  role="complementary">                
                 <span  tabindex="0">Plan your event.  This includes managing the menu and location.
                         You can look up receipes for meals and drinks and add them to the menu.		
                 </span> 
@@ -26,8 +26,8 @@
                         New feature to allow attendees to be assigned menu item.                                    			
                     </span> 
              </div>                   
-            <h2>Find Recipes</h2>    
-            <form action="#" class="js-form">
+            <h2>Find Recipes</h2> 
+            <form action="#" class="js-form" role="form" id="editForm" name="editForm">
                 <div class="search js-search">
                     <label for="queryInput" class="js-search-label">Enter recipe search text</label>
                     <input role=" searchbox" name="queryInput" id="queryInput" type="text" class="js-query" required aria-required="true">                
@@ -41,18 +41,21 @@
                     </div>	
                     <div class="slider-gallery"></div>                   
                 </output>                                  
-                <output  class="js-edit-event js-edit-event-details" aria-live="assertive" hidden></output>     				
+                <output  class="edit-form js-edit js-edit-event" aria-live="assertive" hidden></output>   
+                <output  class="edit-form js-edit-menu" aria-live="assertive" hidden></output>  				
             </form> 
-            <button role="button" type="submit" id="submitEvent" class="js-edit-event" hidden>Submit</button>  
-            <button role="button" type="reset"  id="resetEvent"  class="js-edit-event" hidden>Reset</button> 
-            <button role="button" type="cancel" id="cancelEvent" class="js-edit-event" hidden>Cancel</button>
-            
-            <div class="event-hosts">
-                <div class="js-event-hosts"></div> 
-                <div class="map-canvas js-map-canvas"></div> 
+            <button role="button" type="submit" id="submitEvent" class="js-edit js-edit-button" hidden>Submit</button>  
+            <button role="button" type="reset"  id="resetEvent"  class="js-edit js-edit-button" hidden>Reset</button> 
+            <button role="button" type="cancel" id="cancelEvent" class="js-edit js-edit-button" hidden>Cancel</button>
+        
+            <div class="col-container event-hosts" id="bm-event" name ="bm-event" >            
+                <div class="col event js-event-hosts"></div>             
+                <div class="col map-canvas js-map-canvas"></div>                     
             </div>  
-
-            <div class="menu js-menu"></div>
+           
+            <div class="js-contributors"></div>
+            <div class="col-container menu js-menu">            
+            </div>
         </div>                
     </div>
     </main> 

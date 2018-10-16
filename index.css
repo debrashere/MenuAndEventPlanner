@@ -24,6 +24,9 @@ main .row {
 .content {
    align-content: center; 
 }
+.clearfix {
+  overflow: auto;
+}
 
 .introduction, .futureFeatures {
   width: 90%;
@@ -47,27 +50,67 @@ main .row {
   border-style: solid;    
 }
 
-.event-hosts, menu { 
-  clear: left;
-  margin-top: 10px; 
-} 
-
 h2, h2, h3, address {
   margin: 0;
   display: inline-block;
 }
 
 .recipe {
-  max-width: 375px;
+  max-width: 200px;
   width: 100%;
   display:  inline-block;
   vertical-align: top;
 }
 
+.event-hosts, menu { 
+  clear: both;
+  margin-top: 10px; 
+} 
 .menuItem, .eventLocation {
   padding-left: 15px;
-
+  min-width: 200px;  
 }
+.eventLocation {
+  display: block;
+}
+
+.course {
+  width: 50%;
+  float: right;
+}
+
+.event, .menu, .course {
+  vertical-align: top;  
+}
+
+.map-canvas {
+  overflow: auto;
+  max-width: 300px;
+  float: right;
+}
+
+.col-container {
+  display: table; /* Make the container element behave like a table */
+  width: 100%; /* Set full-width to expand the whole page */
+}
+
+.col {
+  display: table-cell; /* Make elements inside the container behave like table cells */
+}
+
+
+.contributor {
+  border-radius: 10px;
+  background: wheat;
+  padding: 5px; 
+  width: 200px;
+  height: 50px; 
+}
+
+.contributed{
+  padding-left: 15px;
+}
+
 .box {
   text-align: left;
   padding-top: 30px;
@@ -128,43 +171,39 @@ opacity:1;
   background: #fff;
   color: #000!important;
 }
-/*  Search navigation buttons for Prev and Next */
-
-.map-canvas {
-  max-width: 400px;;
-}
-
-@media only screen and (max-width: 600px) {
-  .recipe { max-width: 200px;  }
-  .map-canvas  { max-width: 300px; }
-}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .recipe { max-width: 300px;  }
-  .map-canvas  { max-width: 300px; }
+  .recipe { max-width: 200px;  }
+  .col-container {clear:both; display: inline-block; text-align: left; }  
+  .course {float: left;}
+  .col {clear:both; display: inline-block; }  
+  .map-canvas  { max-width: 300x; float: none;}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .recipe { max-width: 300px;  }
-  .map-canvas  { max-width: 300px; }
+  .recipe { max-width: 200px;  }
+  .col-container {clear:both; display: inline-block; text-align: left; }  
+  .col {clear:both; display: inline-block; }
+  .course {float: left;}
+  .map-canvas  { max-width: 300x; }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .recipe { max-width: 300px;  }
+  .recipe { max-width: 220px;  }
   .map-canvas  { max-width: 300px; }
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .recipe { max-width: 350px;  }
+  .recipe { max-width: 220px;  }
   .map-canvas  { max-width: 300px; }
 } 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  .recipe { max-width: 350px;  }
-  .map-canvas  { max-width: 350px; }
+  .recipe { max-width: 220px;  }
+  .map-canvas  { max-width: 300px; }
 }

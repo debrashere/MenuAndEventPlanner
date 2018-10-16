@@ -1,9 +1,9 @@
 'use strict'
 
-const GOOGLE_MAP_URL = "https://maps.googleapis.com/maps/api/staticmap";
-const GOOGLE_MAP_KEY = "AIzaSyDKhoEyXMCpnWzwGiEqzfnffZEQijVkGek";
+const GOOGLE_MAP_URL = 'https://maps.googleapis.com/maps/api/staticmap';
+const GOOGLE_MAP_KEY = 'AIzaSyDKhoEyXMCpnWzwGiEqzfnffZEQijVkGek';
 const FOOD2FORK_KEY = 'a5b4b941891f56d391acab1758d6f6fd';
-const FOOD2FORK_URL  = "https://www.food2fork.com/api/search";
+const FOOD2FORK_URL  = 'https://www.food2fork.com/api/search';
 let   FOOD2FORK_PAGE = 1;
 const RECIPES_TO_DISPLAY= 5;
 
@@ -495,8 +495,7 @@ function watchSubmitMenuButtonClick() {
 }
      
 function watchResetMenuButtonClick() {       
-  $('#resetMenu').click(event => {
-  if (!eventEditsAreValid())  return;
+  $('#resetMenu').click(event => { 
      showFormEditHost();
   });  
 }

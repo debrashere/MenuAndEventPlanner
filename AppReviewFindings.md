@@ -2,7 +2,7 @@
 
 Thinkful (https://www.thinkful.com/) API Capstone Project creating a menu and event planning.
 
-Link to the live demo: https://debrashere.github.io/MenuAndEventPlanner-Capstone/
+Link to the live demo: https://debrashere.github.io/MenuAndEventPlanner/
 
 ### Summary
 The first draft of this app uses mock data for the initial menu and event details. 

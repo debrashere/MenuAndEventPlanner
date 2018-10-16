@@ -2,14 +2,15 @@
 
 Thinkful (https://www.thinkful.com/) API Capstone Project creating a menu and event planning.
 
-Link to the live demo: https://debrashere.github.io/MenuAndEventPlanner-Capstone/
+Link to the live demo: https://debrashere.github.io/MenuAndEventPlanner/
 
 ### Summary
 The first draft of this app uses mock data for the initial menu and event details. 
 
   #### What you can do:
     Search for recipes.
-    Make changes to the event details such as address and event name. Note: this data is not stored when the page is refreshed, the mock data will appear.   
+    Make changes to the event details such as address and event name. 
+    Note: this data is not stored when the page is refreshed, the mock data will appear.   
 
 ### How to use it
 
@@ -28,7 +29,8 @@ Within each recipe box is text "Add recipe to menu".
 Below that are links for each couse.
 Click on the link for the course you would like to add the recipe to.
 
-Scroll down to the menu section and the recipe name from the search results should appear.
+Scroll down to the menu section and the recipe name from the search 
+results should appear.
 ```
 
 To update the location of the event.
@@ -41,13 +43,26 @@ Change the address of the event and click the "Submit" button.
 The address and the google map should be updated with the new address.
 ```
 
+To display only menu items contributed by a specific attendee.
+
+```
+Next to the menu item name, click the member name link.
+The full menu should dissapear.
+Only the menu items to be contributed by the selected member should display.
+
+Click the "Show menu" link to switch back to the full menu.
+```
+
 ## Screen Shots
 
 ![Recipe Search Results](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/Layout1.png)
 
-![Event location and google map](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/layoutEventDetails.png)
+![Event location and google map](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/layout2.png)
 
-![Event menu](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/layoutMenuDetails.png)
+![Event menu](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/layout3.png)
+
+![Event menu for specific contributor](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/layout4.png)
+
 
 
 ## Built With

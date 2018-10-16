@@ -24,9 +24,6 @@ main .row {
 .content {
    align-content: center; 
 }
-.clearfix {
-  overflow: auto;
-}
 
 .introduction, .futureFeatures {
   width: 90%;
@@ -97,7 +94,6 @@ h2, h2, h3, address {
 .col {
   display: table-cell; /* Make elements inside the container behave like table cells */
 }
-
 
 .contributor {
   margin-top: 5px;
@@ -179,7 +175,6 @@ opacity:1;
   .col-container {clear:both; display: inline-block; text-align: left; }  
   .course {float: left;}
   .col {clear:both; display: inline-block; }  
-  .map-canvas  { max-width: 300x; float: none;}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -188,13 +183,11 @@ opacity:1;
   .col-container {clear:both; display: inline-block; text-align: left; }  
   .col {clear:both; display: inline-block; }
   .course {float: left;}
-  .map-canvas  { max-width: 300x; }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .recipe { max-width: 220px;  }
-  .map-canvas  { max-width: 300px; }
   .search-prev, .search-next { 
     width: 200px;
     height: 35px;
@@ -206,7 +199,6 @@ opacity:1;
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .recipe { max-width: 220px;  }
-  .map-canvas  { max-width: 300px; }
   .search-prev, .search-next { 
     width: 200px;
     height: 35px;
@@ -218,7 +210,6 @@ opacity:1;
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .recipe { max-width: 220px;  }
-  .map-canvas  { max-width: 300px; }
   .search-prev, .search-next { 
     width: 200px;
     height: 35px;

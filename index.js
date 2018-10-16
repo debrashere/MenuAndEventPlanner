@@ -327,10 +327,8 @@ function handleNextPageClicked() {
        <p> <label for="startTime" class="edit-label"><strong>Start Time: </strong></label>  <input type="text"  id="startTime" value="${EVENT.startTime}" /></p>
       </fieldset>`;
 
-      $(".js-edit-event").html(formInputs);   
-      $(".js-edit-event").prop("hidden", false);     
-      $(".js-edit-button").prop("hidden", false);
-      $(".js-edit-menu").prop("hidden", false);
+      $(".js-edit-event-form").html(formInputs);   
+      $(".js-edit-event").prop("hidden", false);
       $(".js-search").prop("hidden", true);      
       $('.js-search-button').prop("hidden", true);
       $("#eventName").prop('required',true);
@@ -432,7 +430,7 @@ function updateEventDetails() {
       $(".js-search").prop("hidden", false);  
       $('.js-search-button').prop("hidden", false);
       generateEventDetails(); 
-      $(".js-edit").prop("hidden", true);
+      $(".js-edit-event").prop("hidden", true);
       $(".js-edit-form").prop("hidden", true);
       location.hash = "bm-event";
     }
@@ -506,7 +504,7 @@ function watchResetMenuButtonClick() {
 function watchCancelEventButtonClick() {       
   $('#cancelEvent').click(event => {  
     $(".js-edit-form").prop("hidden", true);
-    $(".js-edit-button").prop("hidden", true);
+    $(".js-edit-event").prop("hidden", true);
     $(".js-search").prop("hidden", false);  
     $('.js-search-button').prop("hidden", false);
     location.hash = "bm-event";

@@ -5,15 +5,18 @@
   <title>Menu and Event Planner</title> 
   <meta name="description" content="Menu and Event Planner"> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
   <link  rel="stylesheet" href="index.css" />  
 </head>
 <body>
   <main>
     <div class="row">      
-      <div class="logo">   
-          <h1  tabindex="0">Menu and Event Planner</h1>
+      <div class="header">  
+        <h1  tabindex="0" class="centered">Menu and Event Planner</h1> 
+        <img src="images/dinner_dishes_150.png" alt="Header image various plates of dishes" class="headerImage" />          
       </div>        
-        <div class="col-6">           
+        <div class="col-6"> 
+         <section class="content">           
             <h2>Introduction</h2> 
             <div class="introduction"  role="complementary">                
                 <span  tabindex="0">Plan your event.  This includes managing the menu and location.
@@ -27,10 +30,11 @@
                     </span> 
              </div>                   
             <h2>Find Recipes</h2> 
+         </section>                
             <form action="#" class="js-form"  id="editForm" name="editForm">
-                <div class="search js-search">
-                    <label for="queryInput" class="js-search-label">Enter recipe search text</label>
-                    <input name="queryInput" id="queryInput" type="text" class="js-query" required aria-required="true">                
+                <div class="search searchBox js-search">
+                    <label for="queryInput" class="search js-search-label">Enter recipe search text</label>
+                    <input name="queryInput" id="queryInput" type="text" class=" search js-query" required aria-required="true">                
                     <button id="submitRecipeSearch" type="submit" class="search js-search-button" >Search</button>
                 </div> 
                 <output><div id="js-error-message" class="error-message" aria-live="assertive" hidden> </div></output>
@@ -45,14 +49,17 @@
             </form> 
             <button type="submit" id="submitEvent" class="js-edit-event js-edit-button" hidden>Submit</button>  
             <button type="reset"  id="resetEvent"  class="js-edit-event js-edit-button" hidden>Reset</button> 
-            <button type="cancel" id="cancelEvent" class="js-edit-event js-edit-button" hidden>Cancel</button>
-        
+            <button type="cancel" id="cancelEvent" class="js-edit-event js-edit-button" hidden>Cancel</button>                               
             <div class="col-container event-hosts" id="bm-event" name ="bm-event" >            
-                <div class="col event js-event-hosts"></div>             
-                <div class="col map-canvas js-map-canvas"></div>                     
+                <div class="col">
+                        <div class="hostsAndLocation"> <div class="event js-event-hosts"></div></div>
+                </div>             
+                <div class="col">
+                        <div class="hostsAndLocation"> <div class="map-canvas js-map-canvas"></div></div>
+                </div>                     
             </div>  
 
-            <div class="col-container menu js-menu">            
+            <div class="menu-container menu js-menu">            
             </div>
         </div>                
     </div>

@@ -1,28 +1,23 @@
 * {
   box-sizing: border-box;
+  font-size: 20px;
 }
  
 
 body, html {
   padding:0px;
   margin:0px;
-  background: #eee;   
+  background:black;   
 }
 
 main .row {
-  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif; 
-  margin-bottom: 20px;
+  font-family: 'IBM Plex Sans', sans-serif;
   max-width: 90%;
-  padding-left: 20px;
-  padding-right: 20px;
   margin: 0 auto; 
-  background: #fff; 
+  background: white;  
   padding-top: 5px;  
-  padding-bottom: 5px;  
-}
-
-.content {
-   align-content: center; 
+  padding-bottom: 5px; 
+  margin-bottom: 20px; 
 }
 
 .introduction, .futureFeatures {
@@ -31,12 +26,31 @@ main .row {
   margin-bottom: 10px;
 }
 
-.logo {  
-  text-align: center;  
+.header {  
+  text-align: center;
+  vertical-align: top;
   width: 100%;
-  height: 260px;
+  max-width:100%;
   color:white;
-  background: url(images/dinner_dishes.jpg) no-repeat top center fixed;      
+  font-size:8px;
+  position: relative;
+  height: 150px;
+}
+
+.headerImage { 
+  background: black; 
+  height:150px; 
+  width: 100%;
+  object-fit: contain;
+  offset: -20px; 
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .error-message {
@@ -62,61 +76,94 @@ h2, h2, h3, address {
 .event-hosts, menu { 
   clear: both;
   margin-top: 10px; 
-} 
-.menuItem, .eventLocation {
+}
+
+.hostsAndLocation {
+  max-width: 500px;
+  border-radius: 3px; 
+  background: white;
+}
+
+.eventLocation {
+  display: block;
+  padding-top: 20px; 
+  padding-left: 15px;
+  min-width: 200px;  
+}
+
+.menu-container {
+  margin-top: 20px;
+  display: table; /* Make the container element behave like a table */
+  width: 100%; /* Set full-width to expand the whole page */
+  background: white;
+}
+
+.menuHeader {
+  width: 100%;
+  text-align: center;
+  background-color: whitesmoke;
+  border-radius: 3px;
+  padding: 2px;   
+  height: 40px; 
+}
+
+.courseAndMenu{
+  border: 1px solid darkgray;
+  max-width: 340px;
+  border-radius: 3px; 
+  background: white;
+}
+
+.menu {
+  background-color: lightgray; 
+  vertical-align: top;  
+}
+
+.menuItems {
+  padding-top: 20px; 
+  width: 100%;
+}
+
+.menuItem {
   padding-left: 15px;
   min-width: 300px;  
 }
-.eventLocation {
-  display: block;
-}
 
-.course {
-  width: 50%;
+.course, .host { 
+  text-align: center;
+  border: 1px solid darkgrey;
+  width: 100%;
   float: right;
+  background: white;
+  border-radius: 3px;
+  padding: 2px;   
 }
 
-.event, .menu, .course {
+.event {
+  border: 1px solid darkgrey;
+}
+
+.event, .course {
   vertical-align: top;  
 }
 
 .map-canvas {
+  margin-left: 10px;
   overflow: auto;
-  max-width: 300px;
-  float: right;
+  width: 100%; 
+  max-width: 500px; 
 }
 
 .col-container {
+  display: flex;
+  margin-top: 20px;
   display: table; /* Make the container element behave like a table */
   width: 100%; /* Set full-width to expand the whole page */
 }
 
 .col {
   display: table-cell; /* Make elements inside the container behave like table cells */
-}
-
-.contributor {
-  margin-top: 5px;
-  border-radius: 10px;
-  background: wheat;
-  padding: 2px;   
-  width: 200px;
-  height: 40px; 
-}
-
-.contributed{
-  padding-left: 15px;
-}
-
-.box {
-  text-align: left;
-  padding-top: 30px;
-}
-
-.tc-img{
-  height: 300px;
-  width: 100%;
-  object-fit: cover;
+  vertical-align: top;
 }
 
 .title {
@@ -127,7 +174,69 @@ h2, h2, h3, address {
 }
 
 .col-6 {
-  width: 90%;
+  text-align: center;
+  width: 100%;
+}
+
+.content{
+  border-radius: 20px;
+}
+
+.box {
+  padding-top: 30px;
+  text-align: center;
+}
+
+.tc-link {
+  width: 100%;
+}
+
+.tc-img{
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border: solid blue 2px;
+}
+
+.search {
+  height: 50px;
+  text-align: center;
+}
+.searchBox {
+  background-color: lightgrey;
+}
+
+/* links */
+.add-recipe-to:link, .add-recipe-to:visited,
+.edit-link:link, .edit-link:visited,
+.show-menu:link, .show-menu:visited {
+  color: black;
+  text-decoration: underline;
+  display: inline-block;
+  font: bold;
+}
+
+.add-recipe-to:hover, .add-recipe-to:active, 
+.edit-link:hover, .edit-link:active,
+.show-menu:hover, .show-menu:visited {
+  background-color:darkgrey;
+}
+
+.contributor:link, .contributor:visited {
+  background-color: lightgray;
+  color: black;
+  padding: 5px 5px;
+  text-align: center; 
+  text-decoration: underline;
+  display: inline-block;
+
+  font: bold;
+  border-radius: 15px; 
+}
+
+.contributor:hover, .contributor:active {
+  background-color:darkgrey;
+  border-radius: 15px; 
 }
 
 /*  Search navigation buttons for Prev and Next */
@@ -172,17 +281,19 @@ opacity:1;
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .recipe { max-width: 200px;  }
-  .col-container {clear:both; display: inline-block; text-align: left; }  
+  .col-container {clear:both; display: inline-block; text-align: center; }  
   .course {float: left;}
   .col {clear:both; display: inline-block; }  
+  * {font-size: 16px;}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   .recipe { max-width: 200px;  }
-  .col-container {clear:both; display: inline-block; text-align: left; }  
+  .col-container {clear:both; display: inline-block; text-align: center; }  
   .col {clear:both; display: inline-block; }
   .course {float: left;}
+  * {font-size: 16px;}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -191,9 +302,9 @@ opacity:1;
   .search-prev, .search-next { 
     width: 200px;
     height: 35px;
-    font-size: 21px;
     line-height: 30px;
   }
+  * {font-size: 20px;}
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -202,9 +313,10 @@ opacity:1;
   .search-prev, .search-next { 
     width: 200px;
     height: 35px;
-    font-size: 21px;
     line-height: 30px;
   }
+  * {font-size: 20px;}
+  .add-recipe-to { font-size: 20px;}
 } 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -213,7 +325,8 @@ opacity:1;
   .search-prev, .search-next { 
     width: 200px;
     height: 35px;
-    font-size: 21px;
     line-height: 30px;
-  }
+  }  
+  * {font-size: 20px;}
+  .add-recipe-to { font-size: 20px;}
 }

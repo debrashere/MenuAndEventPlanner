@@ -1,13 +1,13 @@
 * {
   box-sizing: border-box;
-  font-size: 20px;
+  font-size: 18px;
 }
  
 
 body, html {
   padding:0px;
   margin:0px;
-  background:black;   
+  background:darkgray;   
 }
 
 main .row {
@@ -15,7 +15,6 @@ main .row {
   max-width: 90%;
   margin: 0 auto; 
   background: white;  
-  padding-top: 5px;  
   padding-bottom: 5px; 
   margin-bottom: 20px; 
 }
@@ -33,7 +32,6 @@ main .row {
   max-width:100%;
   color:white;
   font-size:8px;
-  position: relative;
   height: 150px;
 }
 
@@ -79,7 +77,7 @@ h2, h2, h3, address {
 }
 
 .hostsAndLocation {
-  max-width: 500px;
+  max-width: 290px;
   border-radius: 3px; 
   background: white;
 }
@@ -88,6 +86,7 @@ h2, h2, h3, address {
   display: block;
   padding-top: 20px; 
   padding-left: 15px;
+  padding-right: 15px;
   min-width: 200px;  
 }
 
@@ -98,18 +97,23 @@ h2, h2, h3, address {
   background: white;
 }
 
+.menu-col {
+  display: table; /* Make the container element behave like a table */
+
+}
+
 .menuHeader {
   width: 100%;
   text-align: center;
   background-color: whitesmoke;
   border-radius: 3px;
   padding: 2px;   
-  height: 40px; 
+  height: 30px; 
 }
 
 .courseAndMenu{
   border: 1px solid darkgray;
-  max-width: 340px;
+  width: 290px;
   border-radius: 3px; 
   background: white;
 }
@@ -155,7 +159,6 @@ h2, h2, h3, address {
 }
 
 .col-container {
-  display: flex;
   margin-top: 20px;
   display: table; /* Make the container element behave like a table */
   width: 100%; /* Set full-width to expand the whole page */
@@ -164,6 +167,7 @@ h2, h2, h3, address {
 .col {
   display: table-cell; /* Make elements inside the container behave like table cells */
   vertical-align: top;
+  max-width: 320px;
 }
 
 .title {
@@ -199,7 +203,7 @@ h2, h2, h3, address {
 }
 
 .search {
-  height: 50px;
+  height: 30px;
   text-align: center;
 }
 .searchBox {
@@ -317,6 +321,9 @@ opacity:1;
   }
   * {font-size: 20px;}
   .add-recipe-to { font-size: 20px;}
+  .search-prev, .search-next {  font-size: 20px;}
+  .hostsAndLocation { max-width: 700px; }
+  .col {max-width: 500px; }
 } 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -329,4 +336,7 @@ opacity:1;
   }  
   * {font-size: 20px;}
   .add-recipe-to { font-size: 20px;}
+  .search-prev, .search-next {  font-size: 20px;}
+  .hostsAndLocation { max-width: 700px; }
+  .col {max-width: 500px; }
 }

@@ -61,17 +61,16 @@ Click the "Show menu" link to switch back to the full menu.
 
 ![Event menu](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/layout3.png)
 
-![Event menu for specific contributor](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/layout4.png)
+![Edit event details](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/EditEvent.png)
 
-
+![Contributor menu](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/ContributorMenu.png)
 
 ## Built With
 
 * [VsCode](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 * [Food2Network API](https://Food2Fork.com/) - API used for recipe search
 * [Google Maps API](https://maps.googleapis.com/) - Used to generate googole maps
-* [Photos from unsplash.com](https://unsplash.com/) - Used for heading background* 
-* [Target icon from iconfinder.com](https://www.iconfinder.com/) - Used in Google Map to show event location 
+* [Photos from unsplash.com](https://unsplash.com/) - Used for heading background
 
 ## Versioning
 

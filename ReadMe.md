@@ -22,7 +22,7 @@ To find recipes:
   Review the results by paging thru them. 
 ```
 
-To select a recipe to add to the menu
+To select a recipe to add to the menu 
 
 ```
 Within each recipe box is text "Add recipe to menu".

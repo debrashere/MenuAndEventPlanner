@@ -1,4 +1,5 @@
-# Menu and Event Planner Capstone - Review findings
+# Menu and Event Planner Capstone
+## Review findings
 
 Thinkful (https://www.thinkful.com/) API Capstone Project creating a menu and event planning.
 
@@ -12,16 +13,16 @@ I've reviewed this application with at least 4 people who would use this type of
     Make changes to the event details such as address and event name. Note: this data is not stored when the page is refreshed, the mock data will appear. 
 
   #### Overview of findings  - what users would like to do 
-    When screen is large enough, display the google map beside the event location
-    Make the recipe results smaller and display more then 3 results on the screen
-    Functionality to manage menu items, such as deletion, renaming, assigning atttendee as contributer to a menu item
-    Functionality to have multiple  hosts.
-    On smaller screen, reduce the size of the recipe display.
-    Display headcount of the total expected attendees.
-    Allow management of the attendees such as adding, removing attendees.
-    Display next to the menu items which person(s) contributed to the item.
-    When user clicks a contributer name, display all items which has been assigned to this person.
-    On larger screens display the courses in columns so that you can possibly see all courses without scrolling in the menu section.
+
+  * When screen is large enough, display the google map beside the event location
+    * Make the recipe results smaller and display more then 3 results on the screen
+    * Functionality to manage menu items, such as deletion, renaming, assigning atttendee as contributer to a menu item
+    * Functionality to have multiple  hosts.
+    * On smaller screen, reduce the size of the recipe display.
+    * Display headcount of the total expected attendees.
+    * Allow management of the attendees such as adding, removing attendees.
+    * When user clicks a contributer name, display all items which has been assigned to this person.
+    * On larger screens display the courses in columns so that you can possibly see all courses without scrolling in the menu section.
     
 
 ### Examples of requested fixes
@@ -53,28 +54,3 @@ Change the address of the event and click the "Submit" button.
 
 The address and the google map should be updated with the new address.
 ```
-
-## Screen Shots
-
-![Recipe Search Results](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/Layout1.png)
-
-![Event location and google map](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/layoutEventDetails.png)
-
-![Event menu](https://raw.githubusercontent.com/debrashere/MenuAndEventPlannerLayout/master/layoutMenuDetails.png)
-
-
-## Built With
-
-* [VsCode](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Food2Network API](https://Food2Fork.com/) - API used for recipe search
-* [Google Maps API](https://maps.googleapis.com/) - Used to generate googole maps
-* [Photos from unsplash.com](https://unsplash.com/) - Used for heading background* 
-* [Target icon from iconfinder.com](https://www.iconfinder.com/) - Used in Google Map to show event location 
-
-## Versioning
-
- [Github](https://github.com/) is used for versioning.
-
-## Authors
-
-* **Debra Odom** - *Initial work* 

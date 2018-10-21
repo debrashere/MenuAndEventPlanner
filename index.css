@@ -64,18 +64,6 @@ h2, h2, h3, address {
   display: inline-block;
 }
 
-.recipe {
-  max-width: 200px;
-  width: 100%;
-  display:  inline-block;
-  vertical-align: top;
-}
-
-.event-hosts, menu { 
-  clear: both;
-  margin-top: 10px; 
-}
-
 .hostsAndLocation {
   max-width: 290px;
   border-radius: 3px; 
@@ -90,16 +78,33 @@ h2, h2, h3, address {
   min-width: 200px;  
 }
 
-.menu-container {
-  margin-top: 20px;
-  display: table; /* Make the container element behave like a table */
-  width: 100%; /* Set full-width to expand the whole page */
-  background: white;
+.flex-container {
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
 }
 
-.menu-col {
-  display: table; /* Make the container element behave like a table */
+.flex-item {
+ flex-grow: 1;
+ flex-shrink: 1;
+ flex-basis: auto;
+ background: white;
+ border: solid darkgrey 1px;
+ max-width: 290px;
 
+}
+
+.event-hosts {
+  justify-content: center;
+}
+
+.map-canvas {
+  border: none;
 }
 
 .menuHeader {
@@ -109,6 +114,10 @@ h2, h2, h3, address {
   border-radius: 3px;
   padding: 2px;   
   height: 30px; 
+}
+
+.contributor-menuHeader {
+  height: 60px; 
 }
 
 .courseAndMenu{
@@ -124,13 +133,17 @@ h2, h2, h3, address {
 }
 
 .menuItems {
-  padding-top: 20px; 
+  padding-top: 20px;
+  padding-left: 5px;
+  padding-right: 5px; 
   width: 100%;
+  max-width: 290px;
 }
 
 .menuItem {
-  padding-left: 15px;
-  min-width: 300px;  
+  padding-left: 5px;
+  padding-right: 5px;
+  max-width: 290px;  
 }
 
 .course, .host { 
@@ -145,36 +158,17 @@ h2, h2, h3, address {
 
 .event {
   border: 1px solid darkgrey;
+  margin-bottom: 2px;
 }
 
 .event, .course {
   vertical-align: top;  
 }
 
-.map-canvas {
-  margin-left: 10px;
-  overflow: auto;
-  width: 100%; 
-  max-width: 500px; 
-}
-
-.col-container {
-  margin-top: 20px;
-  display: table; /* Make the container element behave like a table */
-  width: 100%; /* Set full-width to expand the whole page */
-}
-
-.col {
-  display: table-cell; /* Make elements inside the container behave like table cells */
-  vertical-align: top;
-  max-width: 320px;
-}
-
 .title {
     clear: left;
     display:block;
-    padding: 10px;
-    border: solid gray 1px;
+    padding: 10px;    
 }
 
 .col-6 {
@@ -186,11 +180,6 @@ h2, h2, h3, address {
   border-radius: 20px;
 }
 
-.box {
-  padding-top: 30px;
-  text-align: center;
-}
-
 .tc-link {
   width: 100%;
 }
@@ -200,6 +189,7 @@ h2, h2, h3, address {
   width: 100%;
   object-fit: cover;
   border: solid blue 2px;
+  text-decoration: none;
 }
 
 .search {
@@ -207,15 +197,20 @@ h2, h2, h3, address {
   text-align: center;
 }
 .searchBox {
-  background-color: lightgrey;
+  background-color: lightgray; 
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 /* links */
+.recipeLink {
+  text-decoration: none;
+}
 .add-recipe-to:link, .add-recipe-to:visited,
 .edit-link:link, .edit-link:visited,
 .show-menu:link, .show-menu:visited {
+  text-decoration: none;
   color: black;
-  text-decoration: underline;
   display: inline-block;
   font: bold;
 }
@@ -231,9 +226,8 @@ h2, h2, h3, address {
   color: black;
   padding: 5px 5px;
   text-align: center; 
-  text-decoration: underline;
   display: inline-block;
-
+  text-decoration: none;
   font: bold;
   border-radius: 15px; 
 }
@@ -246,13 +240,13 @@ h2, h2, h3, address {
 /*  Search navigation buttons for Prev and Next */
 .search-nav { 
   width: 100%; 
-  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px; 
   text-align: center;
   vertical-align: center;
   opacity: .5;
   font-size: 0;
-  padding-top: 10px;
-  margin-top: 10px;  
+  padding-top: 10px;  
 }
 
 .search-nav:hover {
@@ -284,25 +278,23 @@ opacity:1;
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .recipe { max-width: 200px;  }
-  .col-container {clear:both; display: inline-block; text-align: center; }  
+  .flex-item { max-width: 260px;  } 
   .course {float: left;}
-  .col {clear:both; display: inline-block; }  
   * {font-size: 16px;}
+  .searchBox {height:60px;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .recipe { max-width: 200px;  }
-  .col-container {clear:both; display: inline-block; text-align: center; }  
-  .col {clear:both; display: inline-block; }
+  .flex-item { max-width: 290px;  }
   .course {float: left;}
   * {font-size: 16px;}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .recipe { max-width: 220px;  }
+  .flex-item { max-width: 290px;  }
   .search-prev, .search-next { 
     width: 200px;
     height: 35px;
@@ -313,7 +305,7 @@ opacity:1;
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .recipe { max-width: 220px;  }
+  .flex-item { max-width: 290px;  }
   .search-prev, .search-next { 
     width: 200px;
     height: 35px;
@@ -323,12 +315,11 @@ opacity:1;
   .add-recipe-to { font-size: 20px;}
   .search-prev, .search-next {  font-size: 20px;}
   .hostsAndLocation { max-width: 700px; }
-  .col {max-width: 500px; }
 } 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  .recipe { max-width: 220px;  }
+  .flex-item { max-width: 290px;  }
   .search-prev, .search-next { 
     width: 200px;
     height: 35px;
@@ -338,5 +329,4 @@ opacity:1;
   .add-recipe-to { font-size: 20px;}
   .search-prev, .search-next {  font-size: 20px;}
   .hostsAndLocation { max-width: 700px; }
-  .col {max-width: 500px; }
 }

@@ -5,7 +5,7 @@ const GOOGLE_MAP_KEY = 'AIzaSyDKhoEyXMCpnWzwGiEqzfnffZEQijVkGek';
 const FOOD2FORK_KEY = 'a5b4b941891f56d391acab1758d6f6fd';
 const FOOD2FORK_URL  = 'https://www.food2fork.com/api/search';
 let   FOOD2FORK_PAGE = 1;
-const RECIPES_TO_DISPLAY= 5; 
+const RECIPES_TO_DISPLAY= 4; 
 
 let food2Fork_data = {
     food2ForkResults: null,
@@ -144,7 +144,7 @@ function submitAPIForRecipes(queryString) {
 
   fetch(url)
   .then(response => {
-    if (response.ok) {
+    if (response.ok) {      
       return response.json();
     }
     throw new Error(response.statusText);
@@ -193,14 +193,12 @@ function generateEventDetails() {
   This would be the items this attendee is responsible for.
 */
 function showContributorDetails(thisContributor) {
-  let menuDivs = `<div class="menuHeader"><h2>Menu items for ${thisContributor}</h2> 
+  let menuDivs = `<div class="menuHeader contributor-menuHeader"><h2>Menu items for ${thisContributor}</h2> 
                 <a id="showMenu" aria-label="Show full menu" href="#" class="show-menu js-edit js-show-menu"> Show full menu</a></div>`;
   let courseName = "";
   let matchedCourses = [];
 
-  /* 
-    find all courses where "thisContributor" is assigned to any menu items 
-  */
+  /* find all courses where "thisContributor" is assigned to any menu items  */
    MENU.courses.map( function (thisCourse) {       
     jQuery.each( thisCourse.menuItems, function( i, menuItems ) {
       if ( menuItems.contributors.filter( c => c.contributor == `${thisContributor}`)
@@ -298,7 +296,7 @@ function generateCoursesLinks(recipeId) {
 */
 function renderRecipe(searchResults, navigation) { 
   let slideCount = 1; 
-  $( ".slider-gallery" ).html('<div class="row">');
+  $( ".js-slider-gallery" ).html('');
   if (!continueRecipesAfterPaging(searchResults, navigation)) return;
 
   const data = searchResults.food2ForkResults;     
@@ -307,8 +305,7 @@ function renderRecipe(searchResults, navigation) {
   const coursesLinks = generateCoursesLinks(recipeId);
 
   let thumb =  
-    `<div class="recipe">
-      <div class="box">
+    `<div class="flex-item">
         <a href="${recipe.source_url}" target="_blank" class="recipeLink"> <img src="${recipe.image_url}" class="tc-img tc-link" alt="${recipe.title}" /></a> <br>        
         <span class="title">
           <span class="recipe js-${recipeId}" role="title">${recipe.title}</span> </br>
@@ -316,13 +313,12 @@ function renderRecipe(searchResults, navigation) {
           <span class="js-add-recipe"><strong>Add recipe to menu:</strong></span> </br>           
           <span> ${coursesLinks}</br></span>  
         </span>            
-      </div>
-    </div> `; 
+     </div> `; 
   
-    $( ".slider-gallery" ).append( thumb ); 
+    $( ".js-slider-gallery" ).append( thumb ); 
     slideCount++; 
   });  
-  $( ".slider-gallery" ).append('</div>');    
+  $( ".js-slider-gallery" ).append('</div>');    
   watchAddLToinkClick();
 }
     
@@ -459,12 +455,11 @@ function watchResetEventButtonClick() {
 */
 function generateMenu() {
   let index = 1;   
-  let menuDivs = '<div class="menuHeader"><h2>Menu</h2></div>';
+  let menuDivs = '';
   let contributorSpan = "";
   MENU.courses.map( function(courses) {
     menuDivs += `
-    <div class="col">
-      <div class="courseAndMenu"> 
+      <div class="flex-item"> 
         <div class="course"><h3 class="menu-course" id="bm-${courses.course}">${courses.course}</h3></div><div class="menuItems">`;    
     courses.menuItems.map( function (menuItems) {  
       menuItems.contributors.map( function(contributors) {     
@@ -474,9 +469,9 @@ function generateMenu() {
       menuDivs+= `<p tabindex="0" class="menuItem js-menuItem" aria-label="${courses.course} menu item ${menuItems.menuItem} " >${menuItems.menuItem} ${contributorSpan} </p>`;
       contributorSpan = "";                          
     });
-    menuDivs += "</div></div></div>";
+    menuDivs += "</div></div>";
   });   
-  $(".js-menu").html(`<div class="menuItems js-menuItems">${menuDivs}</div>` ); 
+  $(".js-menu").html(`${menuDivs}` ); 
   watchEditLinkClick();
 }  
 

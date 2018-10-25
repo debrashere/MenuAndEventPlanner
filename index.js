@@ -38,7 +38,7 @@ let MENU =
         {         course: "Appetizer",
                menuItems: [ 
                             {menuItem: "Hot wings",
-                         contributors: [ { contributor: "Jason"}],
+                         contributors: [],
                                 vegan: false,
                            vegetarian: false,
                                  nuts: false },
@@ -95,7 +95,7 @@ let MENU =
                      {menuItem: "Chunky Chocolate Brownies",
                   contributors: [ { contributor: "Jason"}]}, 
                      {menuItem: "Whiskey Whoopie Pies",
-                  contributors: [ { contributor: "Jason"}]},                                         
+                  contributors: []},                                         
                ]
        } ,           
        {         course: "Drinks",
@@ -486,22 +486,33 @@ function generateMenu() {
   let index = 1;   
   let menuDivs = '';
   let contributorSpan = "";
-  MENU.courses.map( function(courses) {
+  let noContributerSpan = "";
+  $(".js-menu").html(''); 
+
+  /* update menu with contributors = "Open" when no one has selected that menu item */
+  MENU.courses.map( course => {
+      course.menuItems.forEach( function(item, index) {
+        if (course.menuItems[index].contributors.length === 0)
+          course.menuItems[index].contributors =  [ { contributor: "Open"}];
+      })   
+  });
+
+  MENU.courses.forEach( function(courses, index) {
     menuDivs += `
-      <div class="flex-item"> 
-        <div class="course"><h3 class="menu-course" id="bm-${courses.course}">${courses.course}</h3></div><div class="menuItems">`;    
-    courses.menuItems.map( function (menuItems) {  
+    <div class="flex-item"> 
+      <div class="course"><h3 class="menu-course" id="bm-${courses.course}">${courses.course}</h3></div><div class="menuItems">`;    
+    courses.menuItems.map( function (menuItems) { 
       menuItems.contributors.map( function(contributors) {     
         contributorSpan += `  <a href="#" aria-label="Show menu items that ${contributors.contributor} will contribute to ${courses.course}" id="conDetails-${contributors.contributor}-${index}" class="contributor js-edit js-contributor" alt="Next">${contributors.contributor}</a>`;
         index++;
-      });     
-      menuDivs+= `<p tabindex="0" class="menuItem js-menuItem" aria-label="${courses.course} menu item ${menuItems.menuItem} " >${menuItems.menuItem} ${contributorSpan} </p>`;
-      contributorSpan = "";                          
+      });          
+      menuDivs += `<p tabindex="0" class="menuItem js-menuItem" aria-label="${courses.course} menu item ${menuItems.menuItem} " >${menuItems.menuItem} ${contributorSpan} </p>`        
+      contributorSpan = "";                         
     });
-    menuDivs += "</div></div>";
+  menuDivs += "</div></div>";
   });   
   $(".js-menu").html(`${menuDivs}` ); 
-  watchEditLinkClick();
+  watchEditLinkClick(); 
 }  
 
 /*
@@ -514,7 +525,7 @@ function addRecipeToMenu(id) {
 
   var clonedobj = jQuery.extend({}, thisCourse[0].menuItems[0]); 
   clonedobj.menuItem = $(`.${recipeId}`).html();
-  clonedobj.contributors =  [];
+  clonedobj.contributors =  [ { contributor: "Open"}];
   thisCourse[0].menuItems.push(clonedobj);
   generateMenu();  
 }

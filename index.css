@@ -117,6 +117,8 @@ h2, h2, h3, address {
   height: 60px; 
 }
 
+
+
 .courseAndMenu{
   border: 1px solid darkgray;
   width: 290px;
@@ -231,6 +233,10 @@ h2, h2, h3, address {
 .contributor:hover, .contributor:active {
   background-color:darkgrey;
   border-radius: 15px; 
+}
+
+.noContributor:link {
+  background-color: yellow; 
 }
 
 /*  Search navigation buttons for Prev and Next */

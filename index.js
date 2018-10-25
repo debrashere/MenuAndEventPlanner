@@ -298,12 +298,15 @@ function generateCoursesLinks(recipeId) {
   Using the results from the recipe search, render the results
 */
 function renderRecipe(searchResults, navigation) { 
-  let slideCount = 1; 
   $( ".js-slider-gallery" ).html('');
-  $( ".js-slider-gallery" ).append('<div class="Aligner"><div class="Aligner-item-arrow"><a href="#"class="paging-icon js-page-prev" alt="Previous"><img src="images/icon-arrow-left.png" alt="left arrow page previous" /></a></div></div>'); 
   if (!continueRecipesAfterPaging(searchResults, navigation)) return;
 
-  const data = searchResults.food2ForkResults;     
+  let slideCount = 1; 
+  let leftArrow  = '<div class="Aligner"><div class="Aligner-item-arrow"><a href="#"class="paging-icon js-page-prev" alt="Previous"><img src="images/icon-arrow-left.png" alt="left arrow page previous" /></a></div></div>';
+  let rightArrow = '<div class="Aligner"><div class="Aligner-item-arrow"><a href="#" class="paging-icon js-page-next" alt="Previous"><img src="images/icon-arrow-right.png" alt="righ arrow page next" /></a></div></div>';
+  let thumbs = "";
+  const data = searchResults.food2ForkResults;   
+
   data.recipes.slice(searchResults.resultsFrom,searchResults.resultsThru).map( function(recipe) {    
   const recipeId= `recipe${slideCount}`;
   const coursesLinks = generateCoursesLinks(recipeId);
@@ -317,16 +320,21 @@ function renderRecipe(searchResults, navigation) {
           <span> ${coursesLinks}</br></span>  
         </span>            
      </div> `; 
-  
-    $( ".js-slider-gallery" ).append( thumb );
-    slideCount++; 
+     thumbs += thumb;
+     slideCount++; 
   });  
-$( ".js-slider-gallery" ).append('<div class="Aligner"><div class="Aligner-item-arrow"><a href="#" class="paging-icon js-page-next" alt="Previous"><img src="images/icon-arrow-right.png" alt="righ arrow page next" /></a></div></div>');
- $( ".js-slider-gallery" ).append('</div>');    
+
+  if ( $(".flex-item").css("max-width") == "260px")  {
+    $( ".js-slider-gallery" ).append(`<div>${leftArrow}${thumbs}${rightArrow}</div>`);  
+  }
+  else {  
+    $( ".js-slider-gallery" ).append(`${leftArrow}${thumbs}${rightArrow}`); 
+  }
+
   watchAddLToinkClick();
   handlePrevPageClicked();
   handleNextPageClicked();  
-}
+} 
     
 /*
   Store the up to 30 results from the recipe API into a local object.  
@@ -546,6 +554,7 @@ function watchSearchButtonClick() {
     $( ".thumbs" ).html("");
     $( ".slide" ).html("");
     $(".js-slider").prop("hidden", true); 
+    food2Fork_data.page = 0;
     const query = $(".js-query").val();
     submitAPIForRecipes(query);
   });  
